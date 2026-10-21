@@ -1,0 +1,97 @@
+/* Tic-Tac-Toe specific */
+
+.mode-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mode-btn {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 1rem;
+}
+
+.board-wrapper {
+  padding: 20px;
+}
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: min(320px, 80vw);
+  margin: 0 auto;
+}
+
+.ttt-cell {
+  aspect-ratio: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.5rem, 10vw, 3.5rem);
+  font-weight: 800;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.ttt-cell:hover:not(.filled) {
+  border-color: rgba(255, 0, 170, 0.5);
+  background: rgba(255, 0, 170, 0.08);
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(255, 0, 170, 0.15);
+}
+
+.ttt-cell.filled {
+  cursor: default;
+}
+
+.ttt-cell.x {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+.ttt-cell.o {
+  color: var(--neon-magenta);
+  text-shadow: 0 0 20px rgba(255, 0, 170, 0.6);
+  border-color: rgba(255, 0, 170, 0.3);
+}
+
+.ttt-cell.winning {
+  animation: winPulse 0.6s ease infinite alternate;
+  border-color: var(--neon-green) !important;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+}
+
+@keyframes winPulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.game-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* Room code display */
+.room-code-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+  margin: 16px 0;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
