@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>対戦オセロ — NEON ARCADE</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="othello.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚫</text></svg>">
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="game-page">
+    <header class="game-header">
+      <div class="container">
+        <div class="game-header-inner">
+          <a href="../index.html" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            ホームに戻る
+          </a>
+          <h1 class="game-title">⚫ 対戦オセロ</h1>
+          <div style="width: 120px;"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <!-- Mode Selection -->
+      <div id="mode-select" class="glass-panel connection-panel">
+        <h2>プレイモードを選択</h2>
+        <p>AI対戦またはオンライン対戦 (WebRTC)</p>
+        <div class="mode-buttons">
+          <button class="btn btn-primary mode-btn" data-mode="ai">🤖 AI対戦</button>
+          <button class="btn btn-secondary mode-btn" data-mode="online">🌐 オンライン対戦 (WebRTC)</button>
+        </div>
+      </div>
+
+      <!-- Online Connection -->
+      <div id="online-panel" class="glass-panel connection-panel hidden">
+        <h2>オンライン対戦</h2>
+        <p>ルームを作成するか、コードを入力して参加</p>
+        
+        <button class="btn btn-primary" id="create-room-btn" style="width:100%;margin-bottom:12px;">
+          ルームを作成
+        </button>
+        
+        <div class="or-divider">または</div>
+        
+        <div class="room-input-group">
+          <input type="text" class="room-input" id="room-input" placeholder="ルームコード" maxlength="6">
+          <button class="btn btn-secondary" id="join-room-btn">参加</button>
+        </div>
+        
+        <div class="connection-status" id="conn-status"></div>
+        
+        <button class="btn btn-secondary btn-sm mt-4" id="back-to-mode">← 戻る</button>
+      </div>
+
+      <!-- Game Area -->
+      <div id="game-area" class="hidden">
+        <div class="status-bar">
+          <div class="status-item score-black">
+            <span class="disc-icon black-disc"></span>
+            <span class="status-value" id="score-black">2</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">ターン</span>
+            <span class="status-value" id="turn-indicator">黒</span>
+          </div>
+          <div class="status-item score-white">
+            <span class="status-value" id="score-white">2</span>
+            <span class="disc-icon white-disc"></span>
+          </div>
+        </div>
+
+        <div class="board-wrapper glass-panel">
+          <div id="othello-board" class="othello-board"></div>
+        </div>
+
+        <p class="player-info" id="player-info"></p>
+
+        <div class="game-actions">
+          <button class="btn btn-secondary" id="restart-btn">リセット</button>
+          <button class="btn btn-danger btn-sm" id="leave-btn">退出</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-content glass-panel">
+      <div class="overlay-title" id="overlay-title">勝ち！</div>
+      <p class="overlay-message" id="overlay-message"></p>
+      <button class="btn btn-primary" id="overlay-restart">もう一度</button>
+    </div>
+  </div>
+
+  <script src="othello.js"></script>
+</body>
+</html>
