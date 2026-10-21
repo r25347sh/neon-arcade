@@ -1,0 +1,35 @@
+# Simple CI - Validate structure on PR / push
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required files exist
+        run: |
+          echo "Checking core files..."
+          test -f index.html
+          test -f css/style.css
+          test -f minesweeper/index.html
+          test -f minesweeper/minesweeper.js
+          test -f othello/index.html
+          test -f othello/othello.js
+          test -f tictactoe/index.html
+          test -f tictactoe/tictactoe.js
+          echo "✅ All core files present"
+
+      - name: Check for large files
+        run: |
+          find . -type f -size +1M -not -path "./.git/*" | while read f; do
+            echo "Warning: large file $f"
+          done
+          echo "✅ Size check done"
