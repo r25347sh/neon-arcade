@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マインスイーパー — NEON ARCADE</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="minesweeper.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💣</text></svg>">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="game-page">
+    <header class="game-header">
+      <div class="container">
+        <div class="game-header-inner">
+          <a href="../index.html" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            ホームに戻る
+          </a>
+          <h1 class="game-title">💣 マインスイーパー</h1>
+          <div style="width: 120px;"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <!-- Controls -->
+      <div class="glass-panel controls-panel">
+        <div class="difficulty-selector">
+          <button class="diff-btn active" data-diff="easy">初級<br><small>9×9 · 10</small></button>
+          <button class="diff-btn" data-diff="medium">中級<br><small>16×16 · 40</small></button>
+          <button class="diff-btn" data-diff="hard">上級<br><small>16×30 · 99</small></button>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="status-bar">
+        <div class="status-item">
+          <span class="status-label">地雷</span>
+          <span class="status-value" id="mine-count">010</span>
+        </div>
+        <div class="status-item face-btn-wrap">
+          <button class="face-btn" id="face-btn" title="リセット">😊</button>
+        </div>
+        <div class="status-item">
+          <span class="status-label">時間</span>
+          <span class="status-value" id="timer">000</span>
+        </div>
+      </div>
+
+      <!-- Board -->
+      <div class="board-wrapper glass-panel">
+        <div id="board" class="ms-board"></div>
+      </div>
+
+      <p class="hint-text">左クリック: 開く · 右クリック: 旗を立てる · 長押し(モバイル): 旗</p>
+    </main>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-content glass-panel">
+      <div class="overlay-title" id="overlay-title">クリア！</div>
+      <p class="overlay-message" id="overlay-message">おめでとうございます！</p>
+      <button class="btn btn-primary" id="overlay-restart">もう一度プレイ</button>
+    </div>
+  </div>
+
+  <script src="minesweeper.js"></script>
+</body>
+</html>
