@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEON ARCADE — プレミアムゲームサイト</title>
+  <meta name="description" content="マインスイーパー、WebRTC対戦オセロ、対戦三目並べ。美しいデザインのブラウザゲーム集。">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">⚡</div>
+          <span class="logo-text">NEON ARCADE</span>
+        </a>
+        <div class="nav-links">
+          <a href="minesweeper/" class="nav-link">マインスイーパー</a>
+          <a href="othello/" class="nav-link">オセロ</a>
+          <a href="tictactoe/" class="nav-link">三目並べ</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <span>✨</span>
+          <span>Pure Frontend · WebRTC P2P</span>
+        </div>
+        <h1 class="hero-title">NEON ARCADE</h1>
+        <p class="hero-subtitle">
+          洗練されたデザインとスムーズな操作感。<br>
+          クラシックゲームを、次世代の体験へ。
+        </p>
+      </div>
+    </section>
+
+    <section class="games-section">
+      <div class="container">
+        <h2 class="section-title">Select Game</h2>
+        <div class="games-grid">
+          
+          <!-- Minesweeper -->
+          <a href="minesweeper/" class="game-card">
+            <div class="game-card-visual minesweeper">
+              <div class="game-icon">💣</div>
+            </div>
+            <div class="game-card-body">
+              <h3 class="game-card-title">
+                マインスイーパー
+                <span class="game-tag tag-solo">SOLO</span>
+              </h3>
+              <p class="game-card-desc">
+                クラシックな地雷除去ゲーム。難易度選択可能。論理と運でクリアを目指せ。
+              </p>
+              <div class="game-card-footer">
+                <span class="play-btn">
+                  プレイする
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Othello -->
+          <a href="othello/" class="game-card">
+            <div class="game-card-visual othello">
+              <div class="game-icon">⚫</div>
+            </div>
+            <div class="game-card-body">
+              <h3 class="game-card-title">
+                対戦オセロ
+                <span class="game-tag tag-multi">P2P</span>
+              </h3>
+              <p class="game-card-desc">
+                WebRTCでリアルタイム対戦。ルームコードを共有して友達とプレイ。AI対戦も可能。
+              </p>
+              <div class="game-card-footer">
+                <span class="play-btn">
+                  プレイする
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Tic-Tac-Toe -->
+          <a href="tictactoe/" class="game-card">
+            <div class="game-card-visual tictactoe">
+              <div class="game-icon">❌</div>
+            </div>
+            <div class="game-card-body">
+              <h3 class="game-card-title">
+                対戦三目並べ
+                <span class="game-tag tag-multi">P2P</span>
+              </h3>
+              <p class="game-card-desc">
+                シンプルだけど奥深い。WebRTCで友達と対戦。ローカル対戦・AI対戦も搭載。
+              </p>
+              <div class="game-card-footer">
+                <span class="play-btn">
+                  プレイする
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>NEON ARCADE · Built with pure HTML / CSS / JS · WebRTC powered</p>
+      <p class="mt-2"><a href="https://github.com/r25347sh/neon-arcade" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>
